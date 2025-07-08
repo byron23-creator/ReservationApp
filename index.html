@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Dashboard</title>
+</head>
+<body>
+	<header>
+		<h1>Reservations Dashboard</h1>
+	</header>
+	<main>
+        <div id="filtrosContainer">
+			<div class="filtro-grupo">
+				<div class="filtro">
+					<label for="filtroFecha">Ver por:</label>
+					<select name="filtroFecha" id="filtroFecha">
+						<option value="todas">Todas</option>
+						<option value="semanal">Esta Semana</option>
+						<option value="mensual">Este Mes</option>
+						<option value="rango">Rango Específico</option> </select>
+				</div>
+				<div class="filtro">
+					<label for="filtroVenue">Venue:</label>
+					<select name="filtroVenue" id="filtroVenue">
+						<option value="todos">Todos</option>
+					</select>
+				</div>
+				<div class="filtro">
+					<label for="filtroCategoria">Categoría:</label>
+					<select name="filtroCategoria" id="filtroCategoria">
+						<option value="todas">Todas</option>
+					</select>
+				</div>
+			</div>
+			<div id="rangoFechasContainer" class="filtro-grupo escondido">
+				<div class="filtro">
+					<label for="fechaInicio">Fecha de Inicio:</label>
+					<input type="date" id="fechaInicio" name="fechaInicio">
+				</div>
+				<div class="filtro">
+					<label for="fechaFinal">Fecha Final:</label>
+					<input type="date" id="fechaFinal" name="fechaFinal">
+				</div>
+			</div>
+		</div>
+		<div id="tablaContainer">
+			<table>
+				<thead>
+					<tr>
+						<th>Cliente</th>
+						<th>Email</th>
+						<th>Fecha Reserva</th>
+						<th>Venue</th>
+						<th>Categoría</th>
+					</tr>
+				</thead>
+				<tbody id="tablaBody">
+					</tbody>
+			</table>
+		</div>
+        <div id="turnosContainer"></div>
+		<div id="detalleContainer" class="escondido">
+			<h2 id="client">name</h2>
+			<p>email: <span id="email"></span></p>
+			<p>Reservation Date: <span id="reservationDate"></span></p>
+			<p>Phone number: <span id="phone"></span></p>
+			<p>Venue: <span id="venue"></span></p>
+			<div>
+				<label for="comentario">Comment: </label>
+				<input name="comentario" id="comentario"></input>
+			</div>
+			<button id="finalizar">Complete</button>
+		</div>
+	</main>
+
+	<div>
+		<button id="authorize_button" onclick="handleAuthClick()">Log in</button>
+		<button id="signout_button" onclick="handleSignoutClick()">Log out</button>
+	</div>
+    
+    <script src="js/credenciales.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" id="gapi"></script>
+	<script async defer src="https://accounts.google.com/gsi/client" id="gis"></script>
+	<script src="js/sheets.js"></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/tabla.js" defer></script> <script src="js/auth.js"></script> 
+
+	<footer>
+		<p>Active Reservations</p>
+	</footer>
+</body>
+</html>
